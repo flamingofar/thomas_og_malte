@@ -14,11 +14,23 @@
 				flex-direction: column;
 				background-color: #000;
 				color: hotpink;
+				text-align: center;
 			}
 		</style>
 	</head>
 	<body>
 		<h1>Hvor længe har Thomas og malte kendt hinanden?</h1>
-		<h1>23.5 år</h1>
+		<h1 id="year">23.5 år</h1>
 	</body>
+	<script>
+		const year = document.querySelector("#year");
+
+		const date1 = new Date("08/01/2000");
+		const date2 = new Date();
+		const differenceInTime = date2.getTime() - date1.getTime();
+		const millisecondsPerYear = 1000 * 60 * 60 * 24 * 365.25; // Average number of milliseconds in a year, accounting for leap years
+		const differenceInYears = differenceInTime / millisecondsPerYear;
+		const roundedDifference = Math.round(differenceInYears * 4) / 4;
+		year.textContent = `${roundedDifference.toFixed(1)} år`;
+	</script>
 </html>
